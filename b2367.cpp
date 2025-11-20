@@ -1,3 +1,5 @@
+// https://judge.beecrowd.com/pt/problems/view/2367
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -10,38 +12,19 @@ typedef unsigned uint;
 
 class Competition {
 public:
-    vector<tuple<int, bool, bool>> memo;
+    vector<int> memo;
 
-    Competition(uint n, uint m) : memo(n + 1) {
-        memo[0] = {0, false, false};
-        memo[1] = {1, true, false};
-
-        for (int i {2}; i <= n; i++)
-            memo[i] = compute_best_move(i, m);
+    Competition(uint n, uint m) : memo(n + 1, 0) {
+        for (int i {0}; i <= n; i++)
+            if (not memo[i])
+                for (int j {i + 1}; j - i <= m and j <= n; j++)
+                    memo[j] = not memo[j] ? j - i : -1;
+            else if (memo[i] > 0 and i + memo[i] <= n)
+                memo[i + memo[i]] = not memo[i + memo[i]] ? memo[i] : -1;
     }
 
     bool get_result() {
-        return get<1>(*memo.rbegin());
-    }
-
-private:
-    tuple<int, bool, bool> compute_best_move(int i, uint m) {
-        bool melhor {false}, segunda_melhor {false};
-        int melhor_mexida {1};
-        for (int j {i - 1}; j >= 0 and i - j <= m; j--)
-            if ((get<0>(memo[j]) != i - j and not get<1>(memo[j]))
-                or (get<0>(memo[j]) == i - j and not get<2>(memo[j]))) {
-                melhor = true;
-                melhor_mexida = i - j;
-                break;
-            }
-        for (int j {i - 1}; j >= 0 and i - j <= m; j--)
-            if (((get<0>(memo[j]) != i - j and not get<1>(memo[j]))
-                 or (get<0>(memo[j]) == i - j and not get<2>(memo[j]))) and i - j != melhor_mexida) {
-                segunda_melhor = true;
-                break;
-            }
-        return {melhor_mexida, melhor, segunda_melhor};
+        return memo.back();
     }
 };
 

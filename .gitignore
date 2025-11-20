@@ -1,0 +1,5 @@
+# Ignore all .idea folders anywhere
+**/.idea/
+
+# Ignore all executable files
+*.exe

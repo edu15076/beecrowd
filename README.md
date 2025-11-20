@@ -1,2 +1,27 @@
-# beecrowd
-Problemas solucionados em C++ ou Python na plataforma https://judge.beecrowd.com/pt
+# Problemas Resolvidos Beecrowd
+Problemas solucionados em C++ ou Python na plataforma https://judge.beecrowd.com/pt.
+
+Por serem didáticos ou mais difíceis, enfoco os problemas:
+* [1233](b1233.cpp)
+* [1446](b1446.cpp)
+* [1683](b1683.cpp)
+* [1703](b1703.cpp)
+* [1767](b1767.cpp)
+* [1841](b1841.cpp)
+* [1928](b1928.cpp)
+* [1982](b1982.cpp)
+* [2372](b2372.cpp)
+* [2379](b2379.cpp)
+* [2400](b2400.cpp)
+* [2439](b2439.py)
+* [2446](b2446.cpp)
+* [2458](b2458.cpp)
+* [2459](b2459.cpp)
+* [2463](b2463.cpp)
+* [2465](b2465.cpp)
+* [2467](b2467.cpp)
+* [2918](b2918.py)
+* [3044](b3044.cpp)
+* [3051](b3051.cpp)
+* [3057](b3057.cpp)
+* [3064](b3064.cpp)
